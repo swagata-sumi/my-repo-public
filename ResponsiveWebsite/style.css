@@ -1,0 +1,154 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+header{
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url( pestre.jpeg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.row{
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.logo{
+  height: 110px;
+  margin-top: 20px;
+  margin-left: 10px;
+  float: left;
+}
+.ul{
+  float: right;
+  margin-top: 60px;
+  margin-right: 5px;
+}
+.ul li{
+  list-style: none;
+  display: inline-block;
+  margin-left: 50px;
+}
+.ul li a{
+  text-decoration: none;
+  color: darkorange;
+  font-size: 90%;
+  font-weight: 100px;
+}
+.ul li a:hover{
+  border-bottom: 2px solid deeppink;
+}
+body{
+  overflow-x: hidden;
+  font-size: 20px;
+  font-family: 'Flamenco', cursive;
+}
+
+.clearfix:after{
+  content: ".";
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0px;
+}
+
+.main{
+  width: 1180px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+h1{
+  color: darkorange;
+  font-size: 240%;
+  word-spacing: 5px;
+  letter-spacing: 3px;
+  margin-bottom:20px; 
+  font-weight: lighter;
+}
+.btn{
+  display: inline-block;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  border-radius: 200px;
+  font-weight: lighter;
+  transition: background-color 0.2s,border 0.2s, color 0.2;
+  text-decoration: none;
+}
+.btnfull{
+  background-color: transparent;
+  color: deeppink;
+  border: 2px solid rgb(231, 106, 125);
+  margin-right: 50px;
+}
+.btnf{
+  background-color: transparent;
+  color: white;
+  border: 2px solid wheat;
+}
+
+.btnfull:hover{
+  background-color: white;
+}
+.btnf:hover{
+  background-color: deeppink;
+}
+
+.clr{
+  animation: clrchng 2s infinite;
+}
+
+@keyframes clrchng{
+  0%{color: rgba(70, 4, 70, 0.945);}
+  25%{color:deeppink;}
+  50%{color: limegreen;}
+  100%{color: rgb(233, 221, 50);}
+}
+
+.mobi-icon{
+  display: none;
+}
+/* ///////////responsive queries////////// */
+
+@media only screen and (max-width:1180px){
+  .main{
+      width: 100%;
+      padding:0 2%;
+  }
+}
+
+@media only screen and (max-width:998px){
+  h1{font-size: 200%;}
+}
+
+@media only screen and (max-width:768px){
+  h1{
+    font-size: 180%;
+  }
+  .ul{
+    display: none;
+  }
+  .mobi-icon{
+    display: inline-block;
+    float: right;
+    margin-top: 30px;
+    margin-right: 20px;
+    color: darkorange;
+  }
+
+  .ul{float: left;}
+
+  .ul li{
+    margin-top: 10px;
+    display: block;
+  }
+}
+@media only screen and (max-width:480px)
+{
+  .btnfull{
+    margin-bottom: 20px;
+  }
+  h1{font-size: 160%;}
+}
