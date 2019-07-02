@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CALCULATOR</title>
+
+  <script type="text/javascript">
+    function displaynum(num){
+      calform.txt1.value = calform.txt1.value+num;
+    }
+  </script>
+  <style>
+  body{
+    background-color:rgb(99, 233, 233) 
+  }
+  *{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  form{
+    width: 400px;
+    height:450px;
+    margin: auto;
+    padding: 30px;
+    background-color:lightcoral
+  }
+  input[type=text]{
+    width: 100%;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 15px;
+  }
+  input[type=button]{
+    padding: 18px;
+    width: 75px;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+  #del{
+    width: 90%;
+    margin-top: 20px;
+  }
+  </style>
+</head>
+<body>
+     <form name="calform">
+       <input type="text" style="text-align: right" name="txt1"><br><br>
+       <input type="button" name="btn9" value=9 onclick="displaynum(btn9.value)">
+       <input type="button" name="btn8" value=8 onclick="displaynum(btn8.value)">
+       <input type="button" name="btn7" value=7 onclick="displaynum(btn7.value)">
+       <input type="button" name="btnd" value=/ onclick="displaynum(btnd.value)"><br>
+       <input type="button" name="btn6" value=6 onclick="displaynum(btn6.value)">
+       <input type="button" name="btn5" value=5 onclick="displaynum(btn5.value)">
+       <input type="button" name="btn4" value=4 onclick="displaynum(btn4.value)">
+       <input type="button" name="btns" value= - onclick="displaynum(btns.value)"><br>
+       <input type="button" name="btn3" value=3 onclick="displaynum(btn3.value)">
+       <input type="button" name="btn2" value=2 onclick="displaynum(btn2.value)">
+       <input type="button" name="btn1" value=1 onclick="displaynum(btn1.value)">
+       <input type="button" name="btnm" value=* onclick="displaynum(btnm.value)"><br>
+       <input type="button" name="btndot" value=. onclick="displaynum(btndot.value)">
+       <input type="button" name="btn0" value=0 onclick="displaynum(btn0.value)">
+       <input type="button" name="btne" value= = onclick="txt1.value=eval(txt1.value)">
+       <input type="button" name="btnad" value=+ onclick="displaynum(btnad.value)">
+       <br>
+       <input type="button" value="DELETE" id="del" onclick="calform.txt1.value ='' ">
+     </form>
+</body>
+</html>
