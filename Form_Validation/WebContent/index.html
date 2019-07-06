@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+	 <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+<style type="text/css">
+	body{
+		 background:linear-gradient(to left,rgba(233, 73, 99, 0.959),rgba(75, 231, 88, 0.774));
+	}
+	
+	#d{
+		 background-color:  rgb(56, 207, 207);
+	}
+	
+</style>
+</head>
+<body>
+	
+	<div class="container"> <br><br>
+    <h1 class="text-center text-warning">Login Form</h1>
+
+    <!-- <div class="col-lg-8 m-auto d-block"> -->
+      
+    <form action="Form_Servlet" method="post">
+      <div class="form-group">
+        <label for="username">USERNAME</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter Your Name " name="usernm" autocomplete="off">
+        <div id="show-error"> </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">PASSWORD</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter Your Password " name="pass">
+        <div id="show_errorPass"> </div>
+      </div>
+
+      <!--  <div class="form-group">
+          <label for="conf_password">CONFIRM PASSWORD</label>
+          <input type="password" class="form-control" id="conf_password" placeholder="Confirm Your Password " name="conf_password">
+          <div id="show_errorConfPass"> </div>
+        </div>
+      -->
+
+      <div class="checkbox">
+        <label><input type="checkbox" name="remember">Remember Me</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+      <br><br><br>
+      
+
+     <center>
+     
+     <div class="badge" id="d">
+      <h4 class=""><a href="register.html" >	NEW USER!! register here.....</a></h4>
+  </div>
+  
+  </center>
+
+    </form>
+  </div>
+
+  <script>
+  $(document).ready(function(){
+
+    $('#show-error').hide();
+    $('#show_errorPass').hide();
+    $('#show_errorConfPass').hide();
+    var usrerr=true;
+    var usrpass=true;
+    var usrconfpass=true;
+
+    $('#username').keyup(function(){
+      user_validation();
+    });
+    $('#password').keyup(function(){
+      pswrd_validation();
+    });
+    $('#conf_password').keyup(function(){
+      passconf_validation();
+    });
+
+    function user_validation(){
+      var chk = $('#username').val();
+      if (chk=="") {
+        $('#show-error').show();
+        $('#show-error').html('** It Should Not Be Empty').css('color','red');
+         usrerr=false;
+        return false;
+      }
+      else{
+        $('#show-error').hide();
+      }
+
+      if ((chk.length <=2) || (chk.length >=20)) {
+        $('#show-error').show();
+        $('#show-error').html('**user name must be between 3 to 26 letters.').css('color','green').focus();
+        $('#show-error').focus;
+         usrerr=false;
+        return false;
+      }
+      else{
+        $('#show-error').hide();
+      }
+    }
+
+    function pswrd_validation(){
+      var p=$('#password').val();
+
+      if(p.length==''){
+      $('#show_errorPass').show();
+      $('#show_errorPass').html('**please give a password').focus().css('color','red');
+       usrpass=false;
+      return false;
+      }
+      else{
+        $('#show_errorPass').hide();
+      }
+
+      if ((p.length <=5) || (p.length >=10)) {
+        $('#show_errorPass').show();
+        $('#show_errorPass').html('**password must be between 5 to 10 character.').css('color','green');
+        $('#show_errorPass').focus;
+         usrpass=false;
+        return false;
+      }
+      else{
+        $('#show_errorPass').hide();
+      }
+    }
+
+    function passconf_validation(){
+      var cp=$('#conf_password').val();
+      var p=$('#password').val();
+      if(p!=cp){
+        $('#show_errorConfPass').show();
+        $('#show_errorConfPass').html('**confirm password should be mached with your password').css('color','deeppink');
+        $('#show_errorConfPass').focus();
+
+        usrconfpass=false;
+        return false;
+      }
+      else 
+      var cp=$('#conf_password').val();
+      if(cp!=""){
+        $('#show_errorConfPass').show();
+        $('#show_errorConfPass').html('password matched successfull');
+        }
+    }
+
+  // validation code for submit button..
+      $('#submit').click(function(){
+        usrerr=true;
+        usrpass=true;
+        usrconfpass=true;
+
+        user_validation();
+        pswrd_validation();
+        passconf_validation();
+
+        if((usrerr==true)&&(usrpass==true)&&(usrconfpass==true)){
+          return true;
+        }
+        else{
+          return false;
+        }
+      });
+  });
+  </script>
+	
+</body>
+</html>
